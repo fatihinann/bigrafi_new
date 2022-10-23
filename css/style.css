@@ -12,8 +12,9 @@ html {
 }
 body{
     background-color: white;
+    max-width: 1920px;
+    margin: auto;
 }
-
 /* :root {
     --lightblue: #42b7ca;
     --blue: #425fca;
@@ -94,10 +95,14 @@ p {
 header {
     display: flex;
 }
+
 .header-inside{
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+}
+.about-overlay{
+    margin: auto;
 }
 .bigrafi-about{
     max-width: 750px;
@@ -108,10 +113,12 @@ header {
 .bigrafi-title{
     color:#EA5556;
     margin-left: 1em;
+    font-size: 3em;
 }
 .bigrafi-text{
     width: auto;
-    font-size: 1.4rem;
+    line-height: 1.5em;
+    font-size: 1.5rem;
 }
 .dots{
     letter-spacing: 2px;
@@ -122,14 +129,9 @@ header {
     z-index: 1;
     width: 100%;
 }
-.olc{
-    height: 95px;
-    width: 100%;
-    background-color: red;
+.navbar{
+    justify-content: flex-end;
 }
-/* header span{
-
-} */
 .navbar-inside{
     /* position: absolute;
     right: 6.375rem;
@@ -142,10 +144,10 @@ header {
     display: flex;
     align-items: center;
     font-size: 1.2rem;
+    gap: 1rem;
 }
 .navbar li {
     line-height: 1.5rem;
-    padding: 6px 0.5em;
 }
 .navbar ul li a {
     text-decoration: none;
@@ -164,13 +166,51 @@ header {
 
 .links {
     text-align: center;
+    justify-content: flex-end;
+	position: relative;
+    margin-right: 1em;
+}
+	
+.links > li {
+	display:inline-block;
 }
 
-.links li {
-    display: inline;
-    padding: 4px 4px 6px 4px;
-    position: relative;
-    letter-spacing: 1px;
+.links a {
+	display:block;
+	color:#FFF;
+	font-size:20px;
+    padding: 0 .25em;
+	line-height: 2em;
+	text-decoration:none;
+}
+
+
+/* Hide Dropdowns by Default */
+.links ul {
+    display: none;
+    position: absolute;
+}
+/* Display Dropdowns on Hover */
+.links li:hover > ul {
+	display:block;
+}
+
+.links li:hover li{
+	background-color: #ececec;
+}
+.links li:hover > a {
+	color: #eb5655;
+}
+/* Fisrt Tier Dropdown */
+.links ul li {
+	width:200px;
+}
+
+/* Second, Third and more Tiers	*/
+.links li ul ul  {
+	position: absolute;
+    top: 0px;
+	right:200px;
 }
 
 .toggle-btn {
@@ -187,16 +227,15 @@ header {
     left: 0;
     top: 0;
     background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgba(0, 0, 0, 0.98);
     overflow-x: hidden;
     transition: 0.5s;
+    display: flex;
 }
 .overlay-content {
     position: relative;
-    top: 25%;
-    width: 100%;
     text-align: center;
-    margin-top: 30px;
+    margin: auto;
 }
 .overlay-content:first-child {
     display: flex;
@@ -221,23 +260,6 @@ header {
     right: 45px;
     font-size: 60px;
 }
-
-
-hr {
-    position: relative;
-    top: -2px;
-    z-index: -1;
-    background-color: #fff;
-    border: 1px solid #fff;
-}
-.nd {
-    background-color: rgb(211, 77, 76);
-    flex-direction: column;
-    align-items: center;
-}
-.nd div {
-    max-width: 60ch;
-}
 .start::after {
     content: "<p>";
 }
@@ -258,19 +280,6 @@ hr {
     text-transform: uppercase;
     font-family: "Roboto Condensed", sans-serif;
 }
-.nd p {
-    font-size: 1.25em;
-    font-weight: 400;
-    color: #eaeaea;
-    line-height: 2rem;
-    z-index: 1;
-    padding: 0 0 0 2em;
-    margin: 0 auto;
-}
-
-.rd {
-    background-color: #f08888;
-}
 
 .my-sec {
     margin-top: 1rem;
@@ -288,29 +297,12 @@ hr {
 }
 
 .section {
-    padding: 5rem 0rem;
+    padding: 4rem 0rem;
     flex-wrap: wrap;
 }
 .section-half {
     padding: 2.5rem 0rem;
 }
-.section1 {
-    background-color: #eb5655;
-    max-width: 1100px;
-    margin: auto;
-}
-.section1 .shape {
-    background-color: #eb5655;
-    bottom: 0;
-}
-.section2 .shape {
-    background-color: #d34d4c;
-}
-
-.section2 {
-    background-color: #d34d4c;
-}
-
 .middle-line {
     background-color: #fff;
     width: 1px;
@@ -326,37 +318,23 @@ hr {
     text-align: center;
     max-width: 280px;
 }
-.services {
-    color: #ea5556;
-    font-weight: 600;
-    margin-top: 1rem;
-    text-align: center;
-    display: inline-block;
-    text-decoration: none;
-    background-color: #fff;
-    padding: 0.8rem;
-    border-radius: 0.25rem;
-    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-    -webkit-border-radius: 0.25rem;
-    -moz-border-radius: 0.25rem;
-    -ms-border-radius: 0.25rem;
-    -o-border-radius: 0.25rem;
-}
-
-.services:hover {
-    box-shadow: 0px 0px 40px 40px #f7bbbb inset;
-}
 /* Bigrafi Kimdir */
-
-.section3 {
-    background-color: #f39999;
-}
-.section3 .my-sec {
+.hr{
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding-top: 1em;
+    padding-right: 20%;
 }
-
+.section3 hr{
+    border: 1px solid #fff;
+    width: 25%;
+}
+.section3 {
+    background-color: #eb5655;
+}
+.section3 .services-grid .service a{
+    display: inline-block;
+}
 .container-f {
     max-width: 1700px;
     display: flex;
@@ -477,14 +455,35 @@ hr {
 .social-icons li a:hover .fab {
     color: #fff;
 }
+.social-icons li a:hover .fa-regular {
+    color: #fff;
+}
 .social-icons li a .fab {
     transition: 0.8s;
 }
-.social-icons li a .fab:hover {
+.social-icons li a .fa-regular {
+    transition: 0.8s;
+}
+.social-icons li a .fab:hover{
     transform: rotateY(360deg);
     color: #fff;
+    -webkit-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
 }
-
+.social-icons li a .fa-regular:hover{
+    transform: rotateY(360deg);
+    color: #fff;
+    -webkit-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+}
+.social-icons li a .fa-regular:hover {
+    transform: rotateY(360deg);
+    font-size: #fff;
+}
 .card:hover li:nth-child(1) a {
     transition-delay: 0.1s;
 }
@@ -551,75 +550,68 @@ hr {
     font-weight: 300;
 }
 .section4 {
-    background: #222;
     display: flex;
     justify-content: center;
     flex-direction: column;
     margin: 0 auto;
     text-align: center;
 }
-.portfolio-header h2 {
-    border: none;
-    color: var(--pink2);
+.section4 h2{
+    color: #222;
+    font-size: 2.5em;
 }
-.portfolio-headers .my-sec {
-    margin-top: 0;
-    cursor: pointer;
+.sec4 p{
+    color: #333;
 }
 .p-content {
     display: none;
     margin: 1em;
     gap: 1em;
 }
-
-.my-sec1 .o1:hover .c1 {
-    display: block;
-}
-.m-1 .my-sec .shape {
-    background-color: #222;
-    border-left: 2px solid var(--pink);
-    border-right: 2px solid var(--pink);
-}
-.m-1 .my-sec h2 {
-    border: 1px solid var(--pink);
-    text-transform: uppercase;
-    color: var(--pink2);
-    font-weight: 500;
-    font-family: "roboto condensed";
-}
 .section5 {
-    background: #f7bbbb;
     display: flex;
     justify-content: center;
     flex-direction: column;
     margin: 0 auto;
     text-align: center;
 }
-.fourth {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-.service-header {
-    font-weight: 900;
+.portfolio {
     color: #fff;
-    padding: 0.5rem;
-    border: 2px solid #fff;
+    font-size: 2.5em;
     text-align: center;
     letter-spacing: 2px;
+    margin-bottom: 1em;
 }
-.section5 .shape {
-    background-color: #f7bbbb;
-    bottom: 0;
-}
-
-.sec4 p {
-    font-size: larger;
-    margin: 1rem;
+.portfolio-header{
     text-align: center;
 }
+.portfolio-header a{
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    transition: .2s;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+}
+.portfolio-header a:first-child:hover{
+    color: #42b7ca;
+    text-decoration: underline;
+}
+.portfolio-header a:last-child:hover{
+    color: #425fca;
+    text-decoration: underline;
+}
+.cta p{
+    line-height: 1.5em;
+    text-align: center;
+    color: #fff;
+}
+
 .service a {
     color: #5b7abb;
-    display: block;
+    display: inline-block;
 }
 
 .service h4 {
@@ -631,18 +623,26 @@ hr {
 }
 
 .services-grid {
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    padding: 1rem;
+    --repeat-num: 1;
+    display: grid;
+    grid-template-columns: 
+  repeat(var(--repeat-num), 1fr);
+    padding: 0
 }
+
+.services-grid2 {
+    --repeat-num: 1;
+    display: grid;
+    grid-template-columns: 
+  repeat(var(--repeat-num), 1fr);
+    padding: 1rem
+}
+/* servis */
 .service {
     background: #fff;
-    margin: 20px;
-    padding: 20px;
+    margin: 1em;
+    padding: 1em;
     border-radius: 4px;
-    text-align: center;
     -webkit-box-flex: 1;
     flex: 1;
     display: -webkit-box;
@@ -667,7 +667,7 @@ hr {
     font-size: 0.9rem;
     margin: 1rem 0;
     line-height: 1.5;
-    color: #999;
+    color: #333;
 }
 .service:hover {
     -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
@@ -711,6 +711,7 @@ hr {
 
 .service > * {
     flex: 1 1 100%;
+    text-align: center;
 }
 
 .service .cta {
@@ -726,20 +727,6 @@ hr {
     letter-spacing: 1px;
 }
 
-.footer-socials {
-    list-style: none;
-    display: flex;
-    margin-top: 1rem;
-    align-self: center;
-    justify-content: center;
-}
-.footer-socials a {
-    padding: 0 1rem;
-    font-size: 2rem;
-}
-.footer-socials a {
-    color: #ea5556;
-}
 .footer-socials .instagram {
     background: radial-gradient(
         circle at 30% 107%,
@@ -816,30 +803,6 @@ hr {
     max-width: 120rem;
     margin: auto;
 }
-.return {
-    display: flex;
-    flex-direction: column;
-}
-.return a {
-    text-decoration: none;
-    color: #111;
-}
-
-.return a {
-    font-size: 2rem;
-    padding: 1rem;
-    letter-spacing: 1px;
-}
-.return a i {
-    font-size: 1.5rem;
-}
-.return section {
-    margin: 1em 0;
-}
-.return section h2 {
-    padding: 5px 2em;
-    transition: 0.5s;
-}
 
 .portfolio-wrapper i {
     transition: 0.5 ease-in-out;
@@ -888,114 +851,156 @@ hr {
     letter-spacing: 2px;
     font-family: "Roboto Condensed", sans-serif;
 }
-@media only screen and (max-width: 1000px) {
-    .profile-image{
-        max-width: 85%;
-    }
-    .navbar .links li a {
-        letter-spacing: 0px;
+
+
+
+
+@media only screen and (max-width: 1366px) {
+    .bigrafi-text{
+        font-size: 1.25rem;
     }
 }
-@media only screen and (max-width: 900px) {
-    .profile-image{
-        width: 72%;
-    }
-    .header-inside{
-        display: flex;
-        justify-content: center;
-    }
-    .bigrafi-about-text{
-        font-size: .9rem;
-    }
-    .navbar {
-        display: none;
-    }
+@media screen and (min-width: 35rem) {
     .services-grid {
-        display: -webkit-box;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        flex-direction: column;
+      --repeat-num: 2;
     }
+    
+    
+  }
+  
+  @media screen and (min-width: 75rem) {
+    .services-grid {
+      --repeat-num: 4;
+    }
+    
+    .services-grid2 {
+        --repeat-num: 3;
+    }
+  }
+@media only screen and (max-width: 925px) {
+.header-inside{
+    display: flex;
+    justify-content: center;
+}
+.bigrafi-text{
+    font-size: 1.25rem;
+}
+.navbar {
+    display: none;
+}
+.navbar ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    gap: 1rem;
+}
 
-    .toggle-btn {
-        position: absolute;
-        display: block;
-        right: 5rem;
-        top: 2rem;
-        font-size: 2rem;
-    }
-    .sidebar {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .overlay a {
-        font-size: 20px;
-    }
-    .overlay .closebtn {
-        font-size: 40px;
-        top: 15px;
-        right: 35px;
-    }
-    .sidebar .toggle-btn {
-        font-size: 2rem;
-        position: fixed;
-        right: 2rem;
-        top: 2rem;
-    }
-    .overlay-content .socials {
-        display: flex;
-        list-style: none;
-        justify-content: center;
-        gap: 2rem;
-        margin-bottom: 2rem;
-    }
-    .sidebar .toggle-btn:hover {
-        cursor: pointer;
-    }
-    .sidebar-inside {
-        display: none;
-    }
-    .sidebar-inside img {
-        display: flex;
-        align-self: center;
-    }
-    .sidebar .links {
-        display: none;
-    }
+.socials {
+    display: flex;
+    justify-content: right;
+}
+.socials a {
+    font-size: 1.35rem;
+}
+.links a {
+	display:block;
+	color:#FFF;
+	font-size:20px;
+    padding: 0 .25em;
+	line-height: 2em;
+	text-decoration:none;
+}
 
-    .my-sec .shape {
-        background-color: #ea5556;
-        z-index: 0;
-    }
-    .my-sec .shape-section {
-        z-index: 0;
-    }
-    .toggle-btn {
-        z-index: 1;
-    }
+.services-grid {
+    padding: 1rem;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+}
 
-    .links {
-        display: flex;
-        flex-direction: column;
-        width: 80%;
-        margin: 0 auto;
-        list-style: none;
-        gap: 1rem;
-    }
+.toggle-btn {
+    position: absolute;
+    display: block;
+    right: 5rem;
+    top: 2rem;
+    font-size: 2rem;
+}
+.sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.overlay a {
+    font-size: 20px;
+}
+.overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+}
+.sidebar .toggle-btn {
+    font-size: 2rem;
+    position: fixed;
+    right: 2rem;
+    top: 2rem;
+}
+.sidebar .toggle-btn:hover {
+    cursor: pointer;
+}
+.sidebar-inside {
+    display: none;
+}
+.sidebar-inside img {
+    display: flex;
+    align-self: center;
+}
+.sidebar .links {
+    display: none;
+}
+.toggle-btn {
+    z-index: 1;
+}
+.links {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    list-style: none;
+    gap: 1rem;
+}
+
+.portfolio-box{
+    margin-top: 5em;
+}
+
+.portfolio-box li{
+    list-style-type: none;
+}
+.portfolio-box li a{
+    font-size: 2em;
+    color: #eb5655;
+}
+.portfolio-box ul li a{
+    color: #eb5655;
+    font-size: 1.5em;
+}
+.portfolio-box ul ul li a {
+    font-size: 1.25em;
+    color: #eee;
+}
+
+hr{
+    width: 50%;
+    margin: 0 auto 1em auto;
+}
+
     .overlay-content .links li a {
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
     .overlay-content .socials a {
         font-size: 1.5rem;
-    }
-    .section2 .shape {
-        background-color: #d34d4c;
-    }
-
-    .section5 .shape {
-        background-color: #f7bbbb;
     }
 }
 @media only screen and (min-width: 900px) {
@@ -1003,23 +1008,49 @@ hr {
         display: none;
     }
 }
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 800px) {
     .bigrafi-text{
         font-size: .9rem;
+    }
+    header{
+        background: #fff url("/img/bigrafi_965.png");
+        background-position: -10rem center ;
+        background-repeat: no-repeat;
+        background-size: cover;  
+    }
+    .header-inside{
+        width: auto;
+        height: 400px;
+    }
+    .bigrafi-about{
+        opacity: .93;
+        background: rgb(17, 16, 16);
+        margin: 1rem;
+        width: 450px;
+    }
+    .deactive{
+        display: none;
+    }
+    .bigrafi-title{
+        line-height: 1.5em;
+        margin-left: 3rem;
+    }
+    .bigrafi-text{
+        margin: 1rem;
+        color: #fff;
+        width: 400px;
+    }
+    .dots{
+        padding: 0 1rem 1rem 0;
+        text-align: right;
     }
 }
 @media screen and (max-width: 600px) {
     header{
         flex-wrap: wrap;
     }
-    .bigrafi-text{
-        font-size: .7rem;
-    }
     .profile-image{
         width: 100%;
-    }
-    .bigrafi-title{
-        font-size: 1.5rem;
     }
     .toggle-btn{
         font-size: 1.5rem;
@@ -1034,11 +1065,6 @@ hr {
     .portfolio-wrapper a i {
         padding: 0.5em;
         font-size: 1.5rem;
-    }
-    .return section h2 {
-        padding: 5px 1em;
-        font-weight: 500;
-        transition: 0.2s;
     }
     .p-double a {
         height: 15rem;

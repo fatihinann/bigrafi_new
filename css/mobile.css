@@ -2,25 +2,33 @@ header{
     background: #fff url("/img/bigrafi_965.png");
     background-position: -10rem center ;
     background-repeat: no-repeat;
-    background-size: cover;    
-    height: 400px;
+    background-size: cover;
+    justify-content: center;
 }
-.header-inside{width: 300px;}
+.header-inside{
+    margin: 0;
+    min-width: 300px;
+}
+.about-overlay{
+    max-width: 500px;
+}
 .bigrafi-about{
     opacity: .93;
     background: rgb(17, 16, 16);
+    width: auto;
+}
+.bigrafi-text{
     margin: 1rem;
+    color: #fff;
+    width: auto;
+    font-size: .75rem;
 }
 .deactive{
     display: none;
 }
 .bigrafi-title{
-    padding: .5rem 0 0 1rem;
-}
-.bigrafi-text{
-    margin: 1rem;
-    color: #fff;
-    width: 250px;
+    line-height: 3rem;
+    margin-left: 1.5em;
 }
 .dots{
     padding: 0 1rem 1rem 0;
